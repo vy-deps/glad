@@ -104,10 +104,9 @@ static int open_gl(void) {
 #if defined(__APPLE__) || defined(__HAIKU__)
       return 1;
 #else
-      gladGetProcAddressPtr = (PFNGLXGETPROCADDRESSPROC_PRIVATE) dlsym(libGL,
-                                                                       "glXGetProcAddressARB");
+      gladGetProcAddressPtr = (PFNGLXGETPROCADDRESSPROC_PRIVATE) dlsym(libGL, "glXGetProcAddressARB");
       if (gladGetProcAddressPtr == NULL) {
-        glad_error_description = "glXGetProcAddressARB not found in libGL";
+        errorDescription = "glXGetProcAddressARB not found in libGL";
         return 0;
       } else
         return 1;
@@ -115,7 +114,7 @@ static int open_gl(void) {
     }
   }
 
-  glad_error_description = "exceeded attempts to dlopen libGL";
+  errorDescription = "exceeded attempts to dlopen libGL";
 
   return 0;
 }
