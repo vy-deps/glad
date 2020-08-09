@@ -138,8 +138,6 @@ static void* get_proc(const char* namez) {
 #endif
   }
 
-  fprintf(stderr, "get_proc(%s): returned 0x%lx\n", namez, (unsigned long)result);
-
   return result;
 }
 
