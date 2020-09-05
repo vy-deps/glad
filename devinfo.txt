@@ -1,0 +1,9 @@
+to build package:
+  conan create . ckristen/max --build=missing
+
+to export package:
+  conan export . ckristen/max
+  conan test test_package glad/1.0.0@ckristen/max
+
+to upload package:
+  conan upload glad/1.0.0@ckristen/max -r ckristen --all
