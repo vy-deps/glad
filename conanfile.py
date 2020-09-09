@@ -14,15 +14,13 @@ class GladConan(ConanFile):
   requires = ""
 
   def build(self):
-    print("self.dir_bld(): %s" % self.dir_bld())
     print("self.dir_src(): %s" % self.dir_src())
     cmake = CMake(self)
-    tools.mkdir(self.dir_bld())
-    cmake.configure(source_folder=self.dir_src(), cache_build_folder=self.dir_bld())
-    cmake.build(build_dir=self.dir_bld())
+    cmake.configure(source_folder=self.dir_src())
+    cmake.build()
 
   def package(self):
-    self.copy("*.h", src="%s%ssrc" % (self.dir_src(), os.sep), dst="include", keep_path=False)
+    self.copy("*.h", src="%s%sinclude" % (self.dir_src(), os.sep), dst="include", keep_path=False)
     self.copy("*.dll", dst="bin", keep_path=False)
     self.copy("*.lib", dst="lib", keep_path=False)
     self.copy("*.so", dst="lib", keep_path=False)
