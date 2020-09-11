@@ -15,4 +15,4 @@ Add remote to get ckristen packages from bintray:
 `conan remote add ckristen https://api.bintray.com/conan/ckristen/conan`
 
 Add dependency to your project:  
-`glad/1.0.0@ckristen/max`
+`glad/1.1.1@ckristen/max`

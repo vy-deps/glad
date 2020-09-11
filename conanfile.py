@@ -4,7 +4,7 @@ import os
 
 class GladConan(ConanFile):
   name = "glad"
-  version = "1.1.0"
+  version = "1.1.1"
   license = "MIT"
   url = "https://github.com/ck33122/glad"
   description = "conan glad package"
@@ -32,10 +32,8 @@ class GladConan(ConanFile):
     self.cpp_info.includedirs = ['include']
     if self.settings.os == "Windows":
       self.cpp_info.libs = ["glad.lib"]
-    elif self.settings.os == "Linux":
-      self.cpp_info.libs = ["libglad.a"]
     else:
-      self.output.error("unknown platform %s, need to fix conanfile.py" % self.settings.os)
+      self.cpp_info.libs = ["libglad.a"]
 
   def dir_src(self):
     try:
