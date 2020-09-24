@@ -4,7 +4,7 @@ import os
 
 class GladConan(ConanFile):
   name = "glad"
-  version = "1.1.1"
+  version = "1.1.3"
   license = "MIT"
   url = "https://github.com/ck33122/glad"
   description = "conan glad package"
@@ -12,6 +12,9 @@ class GladConan(ConanFile):
   generators = "cmake"
   exports_sources = "src%s*" % os.sep
   requires = ""
+
+  def configure(self):
+    del self.settings.compiler.libcxx
 
   def build(self):
     print("self.dir_src(): %s" % self.dir_src())
@@ -33,7 +36,7 @@ class GladConan(ConanFile):
     if self.settings.os == "Windows":
       self.cpp_info.libs = ["glad.lib"]
     else:
-      self.cpp_info.libs = ["libglad.a"]
+      self.cpp_info.libs = ["libglad.a", "dl"]
 
   def dir_src(self):
     try:
