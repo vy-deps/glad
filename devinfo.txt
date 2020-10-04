@@ -3,7 +3,7 @@ to build package:
 
 to export package:
   conan export . ckristen/max
-  conan test test_package glad/1.0.0@ckristen/max
+  conan test test_package glad/1.1.4@ckristen/max
 
 to upload package:
-  conan upload glad/1.0.0@ckristen/max -r ckristen --all
+  conan upload glad/1.1.4@ckristen/max -r ckristen --all

@@ -4,7 +4,7 @@ import os
 
 class GladConan(ConanFile):
   name = "glad"
-  version = "1.1.3"
+  version = "1.1.4"
   license = "MIT"
   url = "https://github.com/ck33122/glad"
   description = "conan glad package"
